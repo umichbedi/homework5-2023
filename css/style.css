@@ -164,7 +164,7 @@ body > header:first-of-type{
 /* Task 14:
 The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences. */
 @media (prefers-reduced-motion: reduce) {
-    .logo { animation: none;
+    #logo { animation: none;
     }
   }
 
@@ -193,7 +193,9 @@ nav{
     width:100%;
 }
 .nav_links{
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -202,7 +204,9 @@ nav{
 Edit the pricing class so that the elements align along the bottom.  As long as it aligns along the bottom we don't care if the cards aren't the same height.  */
 .pricing {
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: flex-end;
+    justify-content: center;
 }
 
 
