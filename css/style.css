@@ -1,0 +1,235 @@
+/* default view */
+
+/* Task 1
+Animate the logo with keyframes.It should start at a width of 25px and grow to 475px.  It should also start with an opacity of 0 and end with an opacity of 1. The animation should take 5 seconds and only happen when the page is loaded. */
+@keyframes logoAnimation{
+    from{
+        width:25px;
+        opacity:0;
+    }
+    to{
+        width: 475px;
+        opacity:1;
+    }
+}
+#logo{
+    animation: logoAnimation 5s ease-in-out;
+}
+
+
+/* Task 2
+Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1.  */
+body{
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+    background-size: cover;
+}
+
+/* Check
+Observe the image of the page at 720px: The view matches  */
+
+
+/* Task 3
+Edit the css for the header tag (all instances) to use flex to match our example.*/
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Task 4
+Edit the css for the nav_links class to use flex to match our example. Do not modify the list items or the links - modify the nav_links class to use flex.  */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Task 5
+Style the links so that they have the same color even after they have been visited.
+Note: As per the requirement I'm only ensuring that the color for the visited links all remain same. Hover state or active page state is not being considered. */
+a:visited {
+    color: blue;
+}
+
+
+/* Task 6
+Identify the proper selector to style ONLY those header elements that are direct children of a card class.  The required styling is the following:
+background: #288088,
+solid 2px border using #45ADAD,
+20px of padding on the top and the bottom,
+50px border-radius on the top left and right corners. */
+.card > header{
+    background: #288088;
+    border: solid 2px  #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+
+/* Check
+Check your work. The corners probably aren’t curving quite as you expected. Use Inspect Element to fix this problem. You will need to utilize a second selector.
+Note: the visual css seems to match the reference */
+
+
+
+/* Task 7:
+Edit the css for the card class to match our example. Achieve this by using a flex-property to specify an initial “size” of 450px.  You need to think about this from a “flex” perspective and realize that flex-direction will affect the size of the elements.  You can see that in the mobile view they all have the same width. */
+.card{
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+
+/* Task 8:
+Edit the css for the pricing class to match our example. You should use flex and the cards should be centered both horizontally and vertically. */
+.pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Task 9:
+Style the images in the gallery class. These elements will have a solid 10px border with a color of #50C7C7, 10px margin on all four sides and a width of 300px. */
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+
+/* Task 10:
+Edit the css for the gallery class to use flex to match our example. */
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+/* Check: (You may want to look at the screen shots from 1200px and 1500px as well -  the changes are not from media queries, but from the use of flex.)
+Note: the visual css seems to match the reference images at both 1200 and 1500 sizes. */
+
+
+/* The following specifications are for when the screen-size is greater than 900px*/
+@media screen and (min-width:900px){
+
+
+/* Check: Observe the screenshot from 1200px.
+Note: the visual reference and the css match one another */
+
+
+/* Task 11:
+Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible. Use flex properties, NOT position properties. */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* Task 12:
+Edit the css for the pricing and card classes to match our example. Part of achieving this is by using a flex-property to specify a “size” of 275px. Notice that the elements do not have the same height, but do have the same width. */
+.card {flex-basis: 275px;}
+.pricing {flex-direction: row;}
+
+
+/* Task 13:
+Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. Make sure that it is always visible. */
+body > header:first-of-type{
+    position:sticky;
+    top:0;
+    width:100%;
+}
+}
+
+
+/* The following specifications are for when the user prefers reduced motion.  */
+/* Task 14:
+The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+    .logo { animation: none;
+    }
+  }
+
+
+/* The following specifications are for when the page is printed in portrait mode. View the print view from Firefox on regular sized paper in Portrait mode. */
+@media print and (orientation: portrait){
+
+
+/* Task 15:
+Change the font on your body to Arial with a backup value of  Helvetica */
+body {
+    font-family: "Arial", Helvetica, sans-serif;
+  }
+
+
+/* Task 16:
+The background image should be removed.  */
+body {
+    background-image: none;
+  }
+
+
+/* Task 17:
+Edit the nav/nav_links elements so that they are spaced according to the image above.  */
+nav{
+    width:100%;
+}
+.nav_links{
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/* Task 18:
+Edit the pricing class so that the elements align along the bottom.  As long as it aligns along the bottom we don't care if the cards aren't the same height.  */
+.pricing {
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+
+/* Task 19:
+The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px.  */
+.card {
+    border: solid 2px #45ADDD;
+    flex-basis: 325px;
+}
+
+
+/* Task 20:
+No part of the gallery should be visible. */
+.gallery, #gallery{
+    display: none;
+}
+
+
+/* Task 21:
+Without using list-style-type add the thumbs up entity as shown in the cards. For some people the thumbs up is not printing as yellow. That is fine. */
+.card ul li:nth-child(2):after{ content: '\1F44D';}
+}
+
+
+/* Check:
+You may have to update your print settings to include background graphics
+Note: this works, and matches the reference image */
+
+
+/* end of code */
